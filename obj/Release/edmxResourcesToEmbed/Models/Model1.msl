@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+    <EntitySetMapping Name="AdminDetails">
+      <EntityTypeMapping TypeName="Database1Model.AdminDetail">
+        <MappingFragment StoreEntitySet="AdminDetail">
+          <ScalarProperty Name="aid" ColumnName="aid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="Database1Model.Area">
+        <MappingFragment StoreEntitySet="Area">
+          <ScalarProperty Name="areaid" ColumnName="areaid" />
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="stid" ColumnName="stid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="areanm" ColumnName="areanm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Database1Model.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="catid" ColumnName="catid" />
+          <ScalarProperty Name="catnm" ColumnName="catnm" />
+          <ScalarProperty Name="catpic" ColumnName="catpic" />
+          <ScalarProperty Name="btid" ColumnName="btid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="Database1Model.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="stid" ColumnName="stid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="cntryid" ColumnName="cntryid" />
+          <ScalarProperty Name="citynm" ColumnName="citynm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clientds">
+      <EntityTypeMapping TypeName="Database1Model.clientd">
+        <MappingFragment StoreEntitySet="clientd">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="cnid" ColumnName="cnid" />
+          <ScalarProperty Name="stid" ColumnName="stid" />
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="Database1Model.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="cntrynm" ColumnName="cntrynm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ordertbs">
+      <EntityTypeMapping TypeName="Database1Model.ordertb">
+        <MappingFragment StoreEntitySet="ordertb">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="btid" ColumnName="btid" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="odate" ColumnName="odate" />
+          <ScalarProperty Name="address" ColumnName="address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Database1Model.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="catid" ColumnName="catid" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="pdescription" ColumnName="pdescription" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="prodpic" ColumnName="prodpic" />
+          <ScalarProperty Name="btid" ColumnName="btid" />
+          <ScalarProperty Name="subcatid" ColumnName="subcatid" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="Database1Model.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="stid" ColumnName="stid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="stname" ColumnName="stname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCategories">
+      <EntityTypeMapping TypeName="Database1Model.SubCategory">
+        <MappingFragment StoreEntitySet="SubCategory">
+          <ScalarProperty Name="subcatid" ColumnName="subcatid" />
+          <ScalarProperty Name="catid" ColumnName="catid" />
+          <ScalarProperty Name="subcatname" ColumnName="subcatname" />
+          <ScalarProperty Name="subcatpic" ColumnName="subcatpic" />
+          <ScalarProperty Name="btid" ColumnName="btid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VendorTbs">
+      <EntityTypeMapping TypeName="Database1Model.VendorTb">
+        <MappingFragment StoreEntitySet="VendorTb">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="bname" ColumnName="bname" />
+          <ScalarProperty Name="bpic" ColumnName="bpic" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="cnid" ColumnName="cnid" />
+          <ScalarProperty Name="stid" ColumnName="stid" />
+          <ScalarProperty Name="cityid" ColumnName="cityid" />
+          <ScalarProperty Name="areaid" ColumnName="areaid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

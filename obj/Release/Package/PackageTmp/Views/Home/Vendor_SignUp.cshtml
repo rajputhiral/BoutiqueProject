@@ -1,0 +1,82 @@
+﻿@model BoutiqueProject.Models.VendorTb
+@{
+    ViewBag.Title = "Vendor_SignUp";
+    Layout = "~/Views/Shared/UserMaster.cshtml";
+}
+
+<div class="fashion_section">
+    <div id="main_slider" class="carousel slide" data-ride="carousel">
+        <div>
+            <div class="carousel-item active">
+                <div class="container">
+                    <h1 class="fashion_taital">Vendor SignUp</h1>
+                    <div class="fashion_section_2">
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                @using (Html.BeginForm("Vendor_SignUp", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                {
+                                    <div class="box_main">
+                                        <div class="form-group">
+                                            <label>Boutique Name</label>
+                                            @Html.TextBoxFor(m => m.bname, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Boutique Logo</label>
+                                            @Html.TextBoxFor(m => m.bpic, new { @type = "file" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            @Html.TextBoxFor(m => m.fname, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            @Html.TextBoxFor(m => m.lname, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Contact</label>
+                                            @Html.TextBoxFor(m => m.contact, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Country</label>
+                                            @Html.DropDownListFor(m => m.cnid, new SelectList(ViewBag.country, "cid", "cntrynm"), "--Country--", new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>State</label>
+                                            @Html.DropDownListFor(m => m.stid, new SelectList(ViewBag.state, "stid", "stname"), "--State--", new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            @Html.DropDownListFor(m => m.cityid, new SelectList(ViewBag.city, "cityid", "citynm"), "--City--", new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Area</label>
+                                            @Html.DropDownListFor(m => m.areaid, new SelectList(ViewBag.area, "areaid", "areanm"), "--Area--", new { @class = "form-control" })
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            @Html.PasswordFor(m => m.password, new { @class = "form-control" })
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Register</button>
+
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,214 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Boutique Portal</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/clientcss/bootstrap.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/clientcss/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="~/Content/clientcss/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="~/clientimages/banner-bg.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="~/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--  -->
+    <!-- owl stylesheets -->
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/clientcss/style.css">
+    <link rel="stylesoeet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body>
+    <!-- banner bg main start -->
+    <div class="banner_bg_main">
+        <!-- header top section start -->
+        <!-- <div class="container">
+           <div class="header_section_top">
+              <div class="row">
+                 <div class="col-sm-12">
+                    <div class="custom_menu">
+                       <ul>
+                          <li><a href="#">Home</a></li>
+                          <li><a href="#">Boutiques</a></li>
+                          <li><a href="#">Log in</a></li>
+                          <li><a href="#">Sign up</a></li>
+                          <li><a href="#">Contact </a></li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div> -->
+        <!-- header top section start -->
+        <!-- logo section start -->
+        <div class="logo_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="logo">
+
+                            <a href="@Url.Action("Index","Home")" class="title">Boutiqes Portal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- logo section end -->
+        <!-- header section start -->
+        <div class="header_section">
+            <div class="container">
+                <div class="containt_main">
+
+                    <div class="dropdown">
+                        @if (Session["user_id"] != null)
+                        {
+                            <button class="btn btn-secondary" type="button">
+                                Welcome
+                                @Session["name"]
+                            </button>
+                        }
+
+
+                    </div>
+                    <div class="main">
+                        <!-- Another variation with a button -->
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search this blog">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header_box">
+
+                        <div class="login_menu">
+                            <ul>
+
+                                @if (Session["user_id"] != null)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("uorder","Home")">
+
+                                            <span class="padding_10">Order</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="@Url.Action("Logout","Home")">
+
+                                            <span class="padding_10">Logout</span>
+                                        </a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a href="@Url.Action("SignIn","Home")">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <span class="padding_10">Sign In</span>
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header section end -->
+        <!-- banner section start -->
+        <div class="banner_section layout_padding">
+            <div class="container">
+                <div id="my_slider" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                                    <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                                    <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                                    <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- banner section end -->
+    </div>
+    <!-- banner bg main end -->
+    <!-- fashion section start -->
+    @RenderBody()
+    <!-- fashion section end -->
+    <!-- electronic section start -->
+    <!-- electronic section end -->
+    <!-- jewellery  section start -->
+    <!-- copyright section end -->
+    <!-- Javascript files-->
+    <script src="~/Scripts/clientjs/jquery.min.js"></script>
+    <script src="~/Scripts/clientjs/popper.min.js"></script>
+    <script src="~/Scripts/clientjs/bootstrap.bundle.min.js"></script>
+    <script src="~/Scripts/clientjs/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/clientjs/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="~/Scripts/clientjs/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/Scripts/clientjs/custom.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>

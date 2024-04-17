@@ -1,0 +1,111 @@
+﻿@model BoutiqueProject.Models.Product
+@{
+    ViewBag.Title = "buynow";
+    Layout = "~/Views/Shared/UserMaster.cshtml";
+}
+
+<div class="fashion_section">
+    <div id="main_slider" class="carousel slide" data-ride="carousel">
+        <div>
+            <div class="carousel-item active">
+                <div class="container">
+
+                    <div class="fashion_section_2">
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.HiddenFor(Model => Model.pid)
+
+                                    <div class="box_main">
+
+
+                                        <div class="form-group">
+                                            @Html.DropDownList("card", new List<SelectListItem>()
+                                            {
+                                                new SelectListItem(){ Text= "Credit Card", Value = "1"},
+                                                new SelectListItem(){ Text= "Debit Card", Value = "2"},
+
+                                            }, "--Card--", new { @class = "form-control" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Card Number</label>
+                                            <input type="number" name="cardno" class="form-control" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Expire </label>
+                                            @Html.DropDownList("Year", new List<SelectListItem>()
+                                            {
+                                                new SelectListItem(){ Text= "2022", Value = "2022"},
+                                                new SelectListItem(){ Text= "2023", Value = "2023"},
+                                                new SelectListItem(){ Text= "2024", Value = "2024"},
+                                                new SelectListItem(){ Text= "2025", Value = "2025"},
+                                                new SelectListItem(){ Text= "2026", Value = "2026"},
+                                                new SelectListItem(){ Text= "2027", Value = "2027"},
+                                                new SelectListItem(){ Text= "2028", Value = "2028"},
+                                                new SelectListItem(){ Text= "2029", Value = "2029"},
+                                                new SelectListItem(){ Text= "2030", Value = "2030"},
+                                                new SelectListItem(){ Text= "2031", Value = "2031"},
+
+                                            }, "--Year--", new { @class = "form-control" })
+                                            @Html.DropDownList("Month", new List<SelectListItem>()
+                                            {
+                                                new SelectListItem(){ Text= "1", Value = "1"},
+                                                new SelectListItem(){ Text= "2", Value = "2"},
+                                                new SelectListItem(){ Text= "3", Value = "3"},
+                                                new SelectListItem(){ Text= "4", Value = "4"},
+                                                new SelectListItem(){ Text= "5", Value = "5"},
+                                                new SelectListItem(){ Text= "6", Value = "6"},
+                                                new SelectListItem(){ Text= "7", Value = "7"},
+                                                new SelectListItem(){ Text= "8", Value = "8"},
+                                                new SelectListItem(){ Text= "9", Value = "9"},
+                                                new SelectListItem(){ Text= "10", Value = "10"},
+                                                new SelectListItem(){ Text= "11", Value = "11"},
+                                                new SelectListItem(){ Text= "12", Value = "12"}
+
+                                            }, "--Month--", new { @class = "form-control" })
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <input type="text" name="name" class="form-control" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>CVV</label>
+                                            <input type="password" name="cvv" class="form-control" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Quantity</label>
+                                            <input type="text" name="quantity" class="form-control" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Shipping Address</label>
+                                            <textarea name="adddress" class="form-control">
+
+                                        </textarea>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary">Order</button>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@model BoutiqueProject.Models.Category
+
+<div class="form-group">
+    <label>Category Name</label>
+    @Html.TextBoxFor(m => m.catnm, new { @class = "form-control" })
+
+</div>
+
+<div class="form-group">
+    <label>Category Image</label>
+    @Html.TextBoxFor(m => m.catpic, new { @type = "file" })
+
+</div>
+<div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Save" />
+    <input type="reset" class="btn btn-primary" value="Cancel" />
+</div>
+
+
+
+

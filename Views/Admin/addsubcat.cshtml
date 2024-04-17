@@ -1,0 +1,88 @@
+﻿@model List<BoutiqueProject.Models.CatSubCatModel>
+@{
+    ViewBag.Title = "addsubcat";
+    Layout = "~/Views/Shared/AdminMaster.cshtml";
+}
+
+<h2>addsubcat</h2>
+
+<div class="container-fluid mt-5 content-inner">
+    <div class="card mb-4 wow fadeIn">
+        <!--Card content-->
+        <!--<div class="card-body d-sm-flex justify-content-between">
+
+            <h4 class="mb-2 mb-sm-0 pt-1">
+                <a href="@Url.Action("Index","SuperAdmin")" target="_blank">Home Page</a>
+                <span></span>
+                <span></span>
+            </h4>
+
+        </div>-->
+    </div>
+    <div class="row wow fadeIn title_header">
+        <!--Grid column1-->
+        <div class="col-md-12 mb-4">
+            <div class="card mb-4">
+                <!-- Card header -->
+                <div class="card-header text-left blue-gradient text-white mdtitle">
+                    Sub Category
+                </div>
+
+                <!--Card content-->
+                <div class="card-body table-responsive">
+                    @using (Html.BeginForm("addsubcat", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                    {
+                        @Html.Partial("_addsubcat", new BoutiqueProject.Models.SubCategory())
+                    }
+
+                    <table id="dtBasicExample" class="table table-striped">
+                        <thead>
+                            <tr class="text-center gaurang-gradient">
+                                <th>
+                                    Category
+                                </th>
+                                <th>
+                                    Sub Category
+                                </th>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Edit
+                                </th>
+                                <th>
+                                    Delete
+                                </th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr align="center">
+                                    <td>
+                                        @item.catnm
+                                    </td>
+                                    <td>
+                                        @item.subcatname
+                                    </td>
+                                    <td>
+                                        <img src="~/subcategory/@item.subcatpic" height="100" width="100" />
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "editsubcat", new { id = item.catid })
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Delete", "delsubcat", new { id = item.catid }, new { @onclick = "return confirm('r u sure want to del?')" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

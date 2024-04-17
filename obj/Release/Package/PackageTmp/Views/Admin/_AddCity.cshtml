@@ -1,0 +1,47 @@
+﻿@model BoutiqueProject.Models.City
+
+
+
+<div class="form-group">
+    <label>Country Name</label>
+    @Html.DropDownListFor(m => m.cid, new SelectList(ViewBag.country, "cid", "cntrynm"), "--Select--", new { @class = "form-control" })
+
+</div>
+
+<div class="form-group">
+    <label>State Name</label>
+    @Html.DropDownListFor(m => m.stid, new SelectList(ViewBag.state, "stid", "stname"), "--Select--", new { @class = "form-control" })
+
+</div>
+
+<div class="form-group">
+    <label>City Name</label>
+    @Html.TextBoxFor(m => m.citynm, new { @class = "form-control" })
+
+</div>
+
+@*<div class="form-group">
+        <label>Product Image</label>
+        @Html.TextBoxFor(m => m.prodpic, new { @type = "file" })
+
+    </div>
+
+
+    <div class="form-group">
+        <label>Product Price</label>
+        @Html.TextBoxFor(m => m.price, new { @class = "form-control" })
+
+    </div>
+
+
+    <div class="form-group">
+        <label>Product Description</label>
+        @Html.TextAreaFor(m => m.pdescription, new { @class = "form-control" })
+    </div>*@
+
+<div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Save" />
+    <input type="reset" class="btn btn-primary" value="Cancel" />
+</div>
+
+

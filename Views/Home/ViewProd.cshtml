@@ -1,0 +1,73 @@
+﻿@model BoutiqueProject.Models.Product
+@{
+    ViewBag.Title = "ViewProd";
+    Layout = "~/Views/Shared/UserMaster.cshtml";
+}
+<div class="fashion_section">
+    <div id="main_slider" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <h1 class="fashion_taital">Product</h1>
+                    <div class="text-center">
+                        <div class="row  text-center">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.HiddenFor(m => m.pid)
+                                @Html.HiddenFor(m => m.pname)
+
+                                <div class="col-lg-12 col-sm-12">
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <td>
+                                                Product Name
+                                            </td>
+                                            <td>
+                                                @Model.pname
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Product Image
+                                            </td>
+                                            <td>
+                                                <img src="~/product/@Model.prodpic" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Product Price
+                                            </td>
+                                            <td>
+                                                @Model.price
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Product Description
+                                            </td>
+                                            <td>
+                                                @Model.pdescription
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <input type="submit" class="btn btn-warning" value="Buy Now" />
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+

@@ -1,0 +1,64 @@
+﻿@model BoutiqueProject.Models.AdminDetail
+@{
+    Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Boutique Portal</title>
+        <link href="~/Content/admincss/arpit.css" rel="stylesheet" />
+        <link href="~/Content/admincss/lgstyle.css" rel="stylesheet" />
+        <link href="~/Content/admincss/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/admincss/mdb.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row tpmargin">
+                <div class="col-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header blue-gradient color-block">
+                            <div>
+                                <h3 class="mt-2 text-center text-white">Login</h3>
+                            </div>
+                        </div>
+                        <div class="card-body">
+
+                            @using(Html.BeginForm())
+                            {
+
+                                <div class="md-form">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    @Html.TextBoxFor(m => m.email, new { @class = "form-control",@placeholder="Username" })
+
+                                    <!--  <input placeholder="UserName" type="text" class="form-control" />-->
+                                </div>
+
+                                <div class="md-form">
+                                    <i class="fa fa-key prefix grey-text"></i>
+                                    @Html.PasswordFor(m => m.password, new { @class = "form-control",@placeholder="Password" })
+
+                                    <!--<input placeholder="Password" type="text" class="form-control" />-->
+                                </div>
+
+                                <div class="text-center">
+                                    <input type="submit" value="Sign In" class="btn blue-gradient" />
+                                </div>
+                             }
+                                <!-- Flash Notification -->
+                                <!-- Flash Notificaiton End-->
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>   
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    </body>
+</html>

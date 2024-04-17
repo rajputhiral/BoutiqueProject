@@ -1,0 +1,25 @@
+﻿@model BoutiqueProject.Models.State
+<div class="form-group">
+    <label>Country Name</label>
+    @Html.DropDownListFor(m => m.cid, new SelectList(ViewBag.State, "cid", "cntrynm"), "--Select--", new { @class = "form-control" })
+
+</div>
+
+@*<div class="form-group">
+        <label>State Name</label>
+        @Html.TextBoxFor(m => m.stid, new { @class = "form-control" })
+
+    </div>*@
+
+<div class="form-group">
+    <label>State Name</label>
+    @Html.TextBoxFor(m => m.stname, new { @class = "form-control" })
+
+</div>
+
+<div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Save" />
+    <input type="reset" class="btn btn-primary" value="Cancel" />
+</div>
+
+

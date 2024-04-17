@@ -1,0 +1,216 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>Admin</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="~/Content/admincss/arpit.css" rel="stylesheet" />
+    <link href="~/Content/admincss/lgstyle.css" rel="stylesheet" />
+    <link href="~/Content/admincss/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/admincss/mdb.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#toggle-btn').on('click', function (e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+
+                $('.side-navbar').toggleClass('shrinked');
+                $('.content-inner').toggleClass('active');
+                $(document).trigger('sidebarChanged');
+
+                if ($(window).outerWidth() > 1183) {
+                    if ($('#toggle-btn').hasClass('active')) {
+                        $('.navbar-header .brand-small').hide();
+                        $('.navbar-header .brand-big').show();
+                    }
+                    else {
+                        $('.navbar-header .brand-small').show();
+                        $('.navbar-header .brand-big').hide();
+                    }
+                }
+                if ($(window).outerWidth() < 1183) {
+                    $('.navbar-header .brand-small').show();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar blue-gradient">
+            <!-- Search Box-->
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
+                            <div class="brand-text d-none d-lg-inline-block"><span>Super Admin </span><strong></strong></div>
+                            <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>SA</strong></div>
+                        </a>
+                        <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                    </div>
+                    <!-- Navbar Menu -->
+                    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                        <!-- Search-->
+                        <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="icon-search"></i></a></li>
+                        <!-- Notifications-->
+                        <li class="nav-item dropdown">
+                            <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell-o"></i><span class="badge bg-red badge-corner">12</span></a>
+                            <ul aria-labelledby="notifications" class="dropdown-menu">
+                                <li>
+                                    <a rel="nofollow" href="#" class="dropdown-item">
+                                        <div class="notification">
+                                            <div class="notification-content"><i class="fa fa-twitter bg-blue"></i>You have 2 followers</div>
+                                            <div class="notification-time"><small>10 minutes ago</small></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>view all notifications                                            </strong></a></li>
+                            </ul>
+                        </li>
+                        <!-- Messages                        -->
+                        <li class="nav-item dropdown">
+                            <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange badge-corner">10</span></a>
+                            <ul aria-labelledby="notifications" class="dropdown-menu">
+                                <li>
+                                    <a rel="nofollow" href="#" class="dropdown-item d-flex">
+                                        <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                                        <div class="msg-body">
+                                            <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Read all messages   </strong></a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Logout    -->
+                        @if (Session["vendor_id"] != null)
+                        {
+                            <li class="nav-item"><a href="@Url.Action("Index","Home")" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                        }
+                        else if (Session["user"] != null)
+                        {
+                            <li class="nav-item"><a href="@Url.Action("Index","Admin")" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center">
+                <div class="avatar"><img src="img/employee.png" alt="..." class="img-fluid rounded-circle"></div>
+                <div class="title">
+                    <h1 class="h4">Boutique Portal</h1>
+                    <p></p>
+                </div>
+            </div>
+            <!-- Sidebar Navidation Menus-->
+            <div class="scrollbar" id="style-2">
+                <div class="force-overflow">
+                    <ul class="list-unstyled">
+                        <div class="list-group list-group-flush">
+                            <a href="#" class="list-group-item active waves-effect">
+                                <i class="fa fa-pie-chart mr-3"></i>Dashboard
+                            </a>
+                            @if (Session["user"] != null)
+                            {
+                                <a href="@Url.Action("addcat", "Admin")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>Category
+                                </a>
+                                <a href="@Url.Action("addsubcat", "Admin")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>Sub Category
+                                </a>
+                                <a href="@Url.Action("addproduct", "Admin")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>Product
+
+                                </a>
+                                <a href="@Url.Action("AddCountry", "Admin")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>country
+                                </a>
+                                <a href="@Url.Action("AddState", "Admin")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>State
+                                </a>
+                                <a href="@Url.Action("AddCity", "Admin")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>City
+                                </a>
+                                <a href="@Url.Action("AddArea", "Admin")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>Area
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("addcategory", "Vendor")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>Category
+                                </a>
+                                <a href="@Url.Action("addsubcat", "Vendor")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>Sub Category
+                                </a>
+                                <a href="@Url.Action("AddProduct", "Vendor")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>Product
+                                </a>
+                                <a href="@Url.Action("showorder", "Vendor")" class="list-group-item list-group-item-action waves-effect">
+                                    <i class="fa fa-user mr-3"></i>Order
+                                </a>
+
+                            }
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Dashboard Counts Section-->
+        <!--Main layout-->
+
+        @RenderBody()
+
+        <!--Main layout-->
+    </div>
+
+    <!-- Page Footer-->
+    </div>
+    <!-- End Footer Page -->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <!-- Charts -->
+
+
+    <script src="js/popper.min.js" type="text/javascript"></script>
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/mdb.min.js" type="text/javascript"></script>
+
+    <link href="css/addons/datatables.min.css" rel="stylesheet" />
+    <script src="js/addons/datatables.min.js" type="text/javascript"></script>
+    <script>
+    $(document).ready(function () {
+        $('#table').DataTable();
+        $('.dataTables_length').addClass('bs-select');
+    });
+    </script>
+
+
+</body>
+</html>
+

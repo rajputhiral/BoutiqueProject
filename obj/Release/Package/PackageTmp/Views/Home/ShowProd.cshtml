@@ -1,0 +1,38 @@
+﻿@model List<BoutiqueProject.Models.Product>
+@{
+    ViewBag.Title = "ShowProd";
+    Layout = "~/Views/Shared/UserMaster.cshtml";
+}
+<div class="fashion_section">
+    <div id="main_slider" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <h1 class="fashion_taital">Product</h1>
+                    <div class="fashion_section_2">
+                        <div class="row">
+
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-4 col-sm-4">
+                                    <div class="box_main">
+                                        <h4 class="shirt_text">@item.pname</h4>
+                                        <div class="tshirt_img"><img src="~/product/@item.prodpic"></div>
+                                        <div class="btn_main">
+                                            <div class="seemore_bt">
+                                                @Html.ActionLink("View", "ViewProd", new { id = item.pid })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+

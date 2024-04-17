@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminDetail">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar(max)" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="areaid" />
+    </Key>
+    <Property Name="areaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cityid" Type="int" />
+    <Property Name="stid" Type="int" />
+    <Property Name="cid" Type="int" />
+    <Property Name="areanm" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="catid" />
+    </Key>
+    <Property Name="catid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="catnm" Type="varchar" MaxLength="50" />
+    <Property Name="catpic" Type="varchar(max)" />
+    <Property Name="btid" Type="int" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="cityid" />
+    </Key>
+    <Property Name="cityid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stid" Type="int" />
+    <Property Name="cid" Type="int" />
+    <Property Name="cntryid" Type="int" />
+    <Property Name="citynm" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="clientd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fname" Type="varchar" MaxLength="50" />
+    <Property Name="lname" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="contact" Type="varchar" MaxLength="50" />
+    <Property Name="cnid" Type="int" />
+    <Property Name="stid" Type="int" />
+    <Property Name="cityid" Type="int" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cntrynm" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ordertb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pid" Type="int" />
+    <Property Name="uid" Type="int" />
+    <Property Name="btid" Type="int" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="odate" Type="varchar" MaxLength="50" />
+    <Property Name="address" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="catid" Type="int" />
+    <Property Name="pname" Type="varchar" MaxLength="50" />
+    <Property Name="pdescription" Type="varchar(max)" />
+    <Property Name="price" Type="varchar" MaxLength="50" />
+    <Property Name="prodpic" Type="varchar(max)" />
+    <Property Name="btid" Type="int" />
+    <Property Name="subcatid" Type="int" />
+    <Property Name="gender" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="stid" />
+    </Key>
+    <Property Name="stid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cid" Type="int" />
+    <Property Name="stname" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SubCategory">
+    <Key>
+      <PropertyRef Name="subcatid" />
+    </Key>
+    <Property Name="subcatid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="catid" Type="int" />
+    <Property Name="subcatname" Type="varchar(max)" />
+    <Property Name="subcatpic" Type="varchar(max)" />
+    <Property Name="btid" Type="int" />
+  </EntityType>
+  <EntityType Name="VendorTb">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bname" Type="varchar" MaxLength="50" />
+    <Property Name="bpic" Type="varchar" MaxLength="50" />
+    <Property Name="fname" Type="varchar" MaxLength="50" />
+    <Property Name="lname" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="contact" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="cnid" Type="int" />
+    <Property Name="stid" Type="int" />
+    <Property Name="cityid" Type="int" />
+    <Property Name="areaid" Type="int" />
+  </EntityType>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="AdminDetail" EntityType="Self.AdminDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="clientd" EntityType="Self.clientd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ordertb" EntityType="Self.ordertb" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VendorTb" EntityType="Self.VendorTb" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

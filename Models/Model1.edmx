@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdminDetail">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar(max)" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="areaid" />
+          </Key>
+          <Property Name="areaid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cityid" Type="int" />
+          <Property Name="stid" Type="int" />
+          <Property Name="cid" Type="int" />
+          <Property Name="areanm" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="catid" />
+          </Key>
+          <Property Name="catid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="catnm" Type="varchar" MaxLength="50" />
+          <Property Name="catpic" Type="varchar(max)" />
+          <Property Name="btid" Type="int" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="cityid" />
+          </Key>
+          <Property Name="cityid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stid" Type="int" />
+          <Property Name="cid" Type="int" />
+          <Property Name="cntryid" Type="int" />
+          <Property Name="citynm" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="clientd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fname" Type="varchar" MaxLength="50" />
+          <Property Name="lname" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="contact" Type="varchar" MaxLength="50" />
+          <Property Name="cnid" Type="int" />
+          <Property Name="stid" Type="int" />
+          <Property Name="cityid" Type="int" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cntrynm" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ordertb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pid" Type="int" />
+          <Property Name="uid" Type="int" />
+          <Property Name="btid" Type="int" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="odate" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="catid" Type="int" />
+          <Property Name="pname" Type="varchar" MaxLength="50" />
+          <Property Name="pdescription" Type="varchar(max)" />
+          <Property Name="price" Type="varchar" MaxLength="50" />
+          <Property Name="prodpic" Type="varchar(max)" />
+          <Property Name="btid" Type="int" />
+          <Property Name="subcatid" Type="int" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="stid" />
+          </Key>
+          <Property Name="stid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cid" Type="int" />
+          <Property Name="stname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="subcatid" />
+          </Key>
+          <Property Name="subcatid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="catid" Type="int" />
+          <Property Name="subcatname" Type="varchar(max)" />
+          <Property Name="subcatpic" Type="varchar(max)" />
+          <Property Name="btid" Type="int" />
+        </EntityType>
+        <EntityType Name="VendorTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bname" Type="varchar" MaxLength="50" />
+          <Property Name="bpic" Type="varchar" MaxLength="50" />
+          <Property Name="fname" Type="varchar" MaxLength="50" />
+          <Property Name="lname" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="contact" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="cnid" Type="int" />
+          <Property Name="stid" Type="int" />
+          <Property Name="cityid" Type="int" />
+          <Property Name="areaid" Type="int" />
+        </EntityType>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="AdminDetail" EntityType="Self.AdminDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clientd" EntityType="Self.clientd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ordertb" EntityType="Self.ordertb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCategory" EntityType="Self.SubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VendorTb" EntityType="Self.VendorTb" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdminDetail">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="areaid" />
+          </Key>
+          <Property Name="areaid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cityid" Type="Int32" />
+          <Property Name="stid" Type="Int32" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="areanm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="catid" />
+          </Key>
+          <Property Name="catid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="catnm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="catpic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="btid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="cityid" />
+          </Key>
+          <Property Name="cityid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stid" Type="Int32" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="cntryid" Type="Int32" />
+          <Property Name="citynm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="clientd">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cnid" Type="Int32" />
+          <Property Name="stid" Type="Int32" />
+          <Property Name="cityid" Type="Int32" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cntrynm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ordertb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pid" Type="Int32" />
+          <Property Name="uid" Type="Int32" />
+          <Property Name="btid" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="odate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="pid" />
+          </Key>
+          <Property Name="pid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="catid" Type="Int32" />
+          <Property Name="pname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prodpic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="btid" Type="Int32" />
+          <Property Name="subcatid" Type="Int32" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="stid" />
+          </Key>
+          <Property Name="stid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cid" Type="Int32" />
+          <Property Name="stname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SubCategory">
+          <Key>
+            <PropertyRef Name="subcatid" />
+          </Key>
+          <Property Name="subcatid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="catid" Type="Int32" />
+          <Property Name="subcatname" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="subcatpic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="btid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VendorTb">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="bpic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cnid" Type="Int32" />
+          <Property Name="stid" Type="Int32" />
+          <Property Name="cityid" Type="Int32" />
+          <Property Name="areaid" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminDetails" EntityType="Self.AdminDetail" />
+          <EntitySet Name="Areas" EntityType="Self.Area" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="clientds" EntityType="Self.clientd" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="ordertbs" EntityType="Self.ordertb" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="States" EntityType="Self.State" />
+          <EntitySet Name="SubCategories" EntityType="Self.SubCategory" />
+          <EntitySet Name="VendorTbs" EntityType="Self.VendorTb" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+          <EntitySetMapping Name="AdminDetails">
+            <EntityTypeMapping TypeName="Database1Model.AdminDetail">
+              <MappingFragment StoreEntitySet="AdminDetail">
+                <ScalarProperty Name="aid" ColumnName="aid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="Database1Model.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="areaid" ColumnName="areaid" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="stid" ColumnName="stid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="areanm" ColumnName="areanm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Database1Model.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="catid" ColumnName="catid" />
+                <ScalarProperty Name="catnm" ColumnName="catnm" />
+                <ScalarProperty Name="catpic" ColumnName="catpic" />
+                <ScalarProperty Name="btid" ColumnName="btid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Database1Model.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="stid" ColumnName="stid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="cntryid" ColumnName="cntryid" />
+                <ScalarProperty Name="citynm" ColumnName="citynm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clientds">
+            <EntityTypeMapping TypeName="Database1Model.clientd">
+              <MappingFragment StoreEntitySet="clientd">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="cnid" ColumnName="cnid" />
+                <ScalarProperty Name="stid" ColumnName="stid" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="Database1Model.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="cntrynm" ColumnName="cntrynm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ordertbs">
+            <EntityTypeMapping TypeName="Database1Model.ordertb">
+              <MappingFragment StoreEntitySet="ordertb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="btid" ColumnName="btid" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="odate" ColumnName="odate" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="Database1Model.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="catid" ColumnName="catid" />
+                <ScalarProperty Name="pname" ColumnName="pname" />
+                <ScalarProperty Name="pdescription" ColumnName="pdescription" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="prodpic" ColumnName="prodpic" />
+                <ScalarProperty Name="btid" ColumnName="btid" />
+                <ScalarProperty Name="subcatid" ColumnName="subcatid" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="Database1Model.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="stid" ColumnName="stid" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="stname" ColumnName="stname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCategories">
+            <EntityTypeMapping TypeName="Database1Model.SubCategory">
+              <MappingFragment StoreEntitySet="SubCategory">
+                <ScalarProperty Name="subcatid" ColumnName="subcatid" />
+                <ScalarProperty Name="catid" ColumnName="catid" />
+                <ScalarProperty Name="subcatname" ColumnName="subcatname" />
+                <ScalarProperty Name="subcatpic" ColumnName="subcatpic" />
+                <ScalarProperty Name="btid" ColumnName="btid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VendorTbs">
+            <EntityTypeMapping TypeName="Database1Model.VendorTb">
+              <MappingFragment StoreEntitySet="VendorTb">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="bname" ColumnName="bname" />
+                <ScalarProperty Name="bpic" ColumnName="bpic" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="cnid" ColumnName="cnid" />
+                <ScalarProperty Name="stid" ColumnName="stid" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="areaid" ColumnName="areaid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
